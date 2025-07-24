@@ -1,86 +1,50 @@
-   "source": [
-    "class Transaction:\n",
-    "    def __init__(self, transction_type, amount):\n",
-    "        self.type= transaction_type\n",
-    "        self.amount=amount\n",
-    "        self.next=None\n",
-    "class TransactionHistory:\n",
-    "    def __init__(self):\n",
-    "        self.head=None\n",
-    "    def add_transaction(self, transaction_Type, amount):\n",
-    "        nn=Transaction(transaction_type,amount)\n",
-    "        if not self.head:\n",
-    "            self.head=nn\n",
-    "        else:\n",
-    "            current= self.head\n",
-    "            while current.next:\n",
-    "                current=current.next\n",
-    "            current.next=nn\n",
-    "        print(\"f{transaction_type of Rs.{amount} recorded...\")\n",
-    "    def show_histry(self):\n",
-    "        if not self.head:\n",
-    "            print(\"No Transaction found...\")\n",
-    "            return\n",
-    "        print(\"/n Transaction History\")\n",
-    "        current=self.head\n",
-    "        count=1\n",
-    "        while current:\n",
-    "            print(f\"{count}, {current.type}-Rs{current.amount}\")\n",
-    "            current=current.next\n",
-    "            count+=1   \n",
-    "history=TransactionHistory()\n",
-    "while True:\n",
-    "    print(\"/n------ATM Transaction Menu-----\")\n",
-    "    print(\"1.Deposit\")\n",
-    "    print(\"2.WithDraw\")\n",
-    "    print(\"3.History\")\n",
-    "    print(\"4.Exit\")\n",
-    "    choice=input(\"Enter your choice:\")\n",
-    "    if choice=='1':\n",
-    "        amount=float(input(\"Enter Amount to Deposit:\"))\n",
-    "        history.add_transaction(\"Deposit\",amount)\n",
-    "    elif choice=='2':\n",
-    "        amount=float(input(\"Enter amount to withdraw:\"))\n",
-    "        history.add_transaction(\"Withdraw\",amount)\n",
-    "    elif choice=='3':\n",
-    "        history.show_history()\n",
-    "    elif choice=='4':\n",
-    "        print(\"End of Transaction ... EXit\")\n",
-    "        break\n",
-    "    else:\n",
-    "        print(\"choose 1/2/3/4...only\")\n",
-    "        \n",
-    "    "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "0f70b27d-29ed-4222-b35d-71f7d268ad51",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.12.7"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+class Transaction:
+    def __init__(self, transction_type, amount):
+        self.type= transaction_type
+        self.amount=amount
+        self.next=None
+class TransactionHistory:
+    def __init__(self):
+        self.head=None
+    def add_transaction(self, transaction_Type, amount):
+        nn=Transaction(transaction_type,amount)
+        if not self.head:
+            self.head=nn
+        else:
+            current= self.head
+            while current.next:
+                current=current.next
+            current.next=nn
+        print("f{transaction_type of Rs.{amount} recorded...")
+    def show_histry(self):
+        if not self.head:
+            print("No Transaction found...")
+            return
+        print("/n Transaction History")
+        current=self.head
+        count=1
+        while current:
+            print(f"{count}, {current.type}-Rs{current.amount}")
+            current=current.next
+            count+=1   
+history=TransactionHistory()
+while True:
+    print("/n------ATM Transaction Menu-----")
+    print("1.Deposit")
+    print("2.WithDraw")
+    print("3.History")
+    print("4.Exit")
+    choice=input("Enter your choice:")
+    if choice=='1':
+        amount=float(input("Enter Amount to Deposit:"))
+        history.add_transaction("Deposit",amount)
+    elif choice=='2':
+        amount=float(input("Enter amount to withdraw:"))
+        history.add_transaction("Withdraw",amount)
+    elif choice=='3':
+        history.show_history()
+    elif choice=='4':
+        print("End of Transaction ... EXit")
+        break
+    else:
+        print("choose 1/2/3/4...only")
